@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Reservation Start Date Calculator</title>
+  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+</head>
+
+<body>
+  <!--
+  <p>今日は何日？<div id="today-date"></div></p>
+  -->
+  <div class="container">
+    <div class="row mt-3">
+      <label class="col-sm-2 form-label" for="avail-rsv-date">いつまで予約できる？</label>
+      <div class="col-sm-4">
+        <input class="form-control" type="date" id="avail-rsv-date" />
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <label class="col-sm-2 form-label" for="pref-rsv-date">いつを予約したい？</label>
+      <div class="col-sm-4">
+        <input class="form-control" type="date" id="pref-rsv-date" />
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <label class="col-sm-2 form-label" for="rsv-start-date">いつから予約できる？</label>
+      <div class="col-sm-2">
+        <input class="form-control" type="date" id="rsv-start-date" disabled />
+      </div>
+      <a type="submit" class="btn btn-primary mb-3 col-sm-2" id="google-calendar-link" href="#" target="_blank"
+        rel="noopener noreferrer">Google Calendar</a>
+    </div>
+  </div>
+
+  <script src="bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>
