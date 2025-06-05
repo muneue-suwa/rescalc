@@ -1,4 +1,4 @@
-const currentDate = new Date()
+const currentDate = new Date();
 const currentDateString = currentDate.toLocaleDateString('sv-SE');
 const rsvStartDate = new Date();
 
@@ -12,47 +12,48 @@ availRsvDateElement.value = currentDateString;
 prefRsvDateElement.value = currentDateString;
 
 // Load settings from Chrome storage
-chrome.storage.session.get(['availRsvDate', 'prefRsvDate']).then((result) => {
-    console.log('Loaded settings:', result);
-    if (result.availRsvDate) {
-        availRsvDateElement.value = result.availRsvDate;
-    }
-    if (result.prefRsvDate) {
-        prefRsvDateElement.value = result.prefRsvDate;
-    }
+chrome.storage.session.get(['availRsvDate', 'prefRsvDate']).then(result => {
+  console.log('Loaded settings:', result);
+  if (result.availRsvDate) {
+    availRsvDateElement.value = result.availRsvDate;
+  }
+
+  if (result.prefRsvDate) {
+    prefRsvDateElement.value = result.prefRsvDate;
+  }
 });
 
 availRsvDateElement.min = currentDateString;
 prefRsvDateElement.min = currentDateString;
 
-availRsvDateElement.addEventListener('input', (event) => {
-    calculateRsvStartDate();
+availRsvDateElement.addEventListener('input', () => {
+  calculateRsvStartDate();
 });
-prefRsvDateElement.addEventListener('input', (event) => {
-    calculateRsvStartDate();
+prefRsvDateElement.addEventListener('input', () => {
+  calculateRsvStartDate();
 });
 
 calculateRsvStartDate();
 function calculateRsvStartDate() {
-    const diff = prefRsvDateElement.valueAsNumber - availRsvDateElement.valueAsNumber;
-    console.log(diff);
-    rsvStartDate.setTime(currentDate.getTime() + diff);
-    // const rsvStartDateString = rsvStartDate.toLocaleDateString();
-    rsvStartDateElement.value = rsvStartDate.toLocaleDateString('sv-SE');
-    updateGoogleCalendarLink();
-    saveSettings();
+  const diff = prefRsvDateElement.valueAsNumber - availRsvDateElement.valueAsNumber;
+  console.log(diff);
+  rsvStartDate.setTime(currentDate.getTime() + diff);
+  // Const rsvStartDateString = rsvStartDate.toLocaleDateString();
+  rsvStartDateElement.value = rsvStartDate.toLocaleDateString('sv-SE');
+  updateGoogleCalendarLink();
+  saveSettings();
 }
 
 function updateGoogleCalendarLink() {
-    const rsvStartDateString = rsvStartDate.toLocaleDateString('sv-SE').replace(/-/g, '');
-    const calendarUrl = `https://calendar.google.com/calendar/r/eventedit?dates=${rsvStartDateString}/${rsvStartDateString}&text=reservation&details=hogehoge`;
-    console.log(calendarUrl);
-    googleCalendarLink.href = calendarUrl;
+  const rsvStartDateString = rsvStartDate.toLocaleDateString('sv-SE').replace(/-/g, '');
+  const calendarUrl = `https://calendar.google.com/calendar/r/eventedit?dates=${rsvStartDateString}/${rsvStartDateString}&text=reservation&details=hogehoge`;
+  console.log(calendarUrl);
+  googleCalendarLink.href = calendarUrl;
 }
 
 function saveSettings() {
-    chrome.storage.session.set({
-        availRsvDate: availRsvDateElement.value,
-        prefRsvDate: prefRsvDateElement.value,
-    });
+  chrome.storage.session.set({
+    availRsvDate: availRsvDateElement.value,
+    prefRsvDate: prefRsvDateElement.value,
+  });
 }
