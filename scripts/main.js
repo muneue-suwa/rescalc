@@ -9,7 +9,7 @@ const googleCalendarLink = document.getElementById('google-calendar-link');
 
 const updateGoogleCalendarLink = () => {
   const rsvStartDateString = rsvStartDate.toLocaleDateString('sv-SE').replace(/-/g, '');
-  const calendarUrl = `https://calendar.google.com/calendar/r/eventedit?dates=${rsvStartDateString}/${rsvStartDateString}&text=reservation&details=hogehoge`;
+  const calendarUrl = `https://calendar.google.com/calendar/r/eventedit?dates=${rsvStartDateString}/${rsvStartDateString}&text=reservation`;
   console.log(calendarUrl);
   googleCalendarLink.href = calendarUrl;
 };
