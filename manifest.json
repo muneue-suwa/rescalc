@@ -14,5 +14,6 @@
   },
   "permissions": [
     "storage"
-  ]
+  ],
+  "default_locale": "en"
 }

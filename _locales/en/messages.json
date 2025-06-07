@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "Reservation Start Date Calculator"
+  },
+  "availRsvDate": {
+    "message": "Until when can I make a reservation?"
+  },
+  "prefRsvDate": {
+    "message": "Which date do you want to reserve?"
+  },
+  "rsvStartDate": {
+    "message": "From when can I reserve?"
+  }
+}

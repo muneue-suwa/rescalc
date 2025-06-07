@@ -7,6 +7,10 @@ const prefRsvDateElement = document.getElementById('pref-rsv-date');
 const rsvStartDateElement = document.getElementById('rsv-start-date');
 const googleCalendarLink = document.getElementById('google-calendar-link');
 
+document.getElementById('avail-rsv-date-label').textContent = chrome.i18n.getMessage('availRsvDate');
+document.getElementById('pref-rsv-date-label').textContent = chrome.i18n.getMessage('prefRsvDate');
+document.getElementById('rsv-start-date-label').textContent = chrome.i18n.getMessage('rsvStartDate');
+
 const updateGoogleCalendarLink = () => {
   const rsvStartDateString = rsvStartDate.toLocaleDateString('sv-SE').replace(/-/g, '');
   const calendarUrl = `https://calendar.google.com/calendar/r/eventedit?dates=${rsvStartDateString}/${rsvStartDateString}&text=reservation`;

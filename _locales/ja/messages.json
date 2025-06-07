@@ -1,0 +1,14 @@
+{
+  "extName": {
+    "message": "予約開始日計算機"
+  },
+  "availRsvDate": {
+    "message": "いつまで予約できる？"
+  },
+  "prefRsvDate": {
+    "message": "いつを予約したい？"
+  },
+  "rsvStartDate": {
+    "message": "いつから予約できる？"
+  }
+}
