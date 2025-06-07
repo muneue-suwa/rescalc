@@ -1,7 +1,7 @@
 {
-  "name": "reserve-calculator",
+  "name": "rescalc",
   "version": "1.0.0",
-  "description": "Calculate reservation start dates",
+  "description": "Google Chrome extension to calculate reservation start dates",
   "keywords": [
     "chrome-extension",
     "calendar",
@@ -11,6 +11,10 @@
   "author": "Muneue SUWA",
   "type": "commonjs",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/muneue-suwa/rescalc.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

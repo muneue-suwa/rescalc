@@ -1,7 +1,7 @@
 {
-  "name": " Reserve Calculator",
-  "description": "Base Level Extension",
-  "version": "1.0",
+  "name": " rescalc",
+  "description": "Google Chrome extension to calculate reservation start dates",
+  "version": "1.0.0",
   "manifest_version": 3,
   "action": {
     "default_popup": "popup/popup.html",
