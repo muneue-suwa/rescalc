@@ -28,8 +28,11 @@ const calculateRsvStartDate = () => {
   // Const rsvStartDateString = rsvStartDate.toLocaleDateString();
   rsvStartDateElement.value = rsvStartDate.toLocaleDateString('sv-SE');
   updateGoogleCalendarLink();
-  saveSettings();
 };
+
+// Set the minimum date
+availRsvDateElement.min = currentDateString;
+prefRsvDateElement.min = currentDateString;
 
 // Initialize the date inputs with the current date
 availRsvDateElement.value = currentDateString;
@@ -44,16 +47,15 @@ chrome.storage.session.get(['availRsvDate', 'prefRsvDate']).then(result => {
   if (result.prefRsvDate) {
     prefRsvDateElement.value = result.prefRsvDate;
   }
-});
 
-availRsvDateElement.min = currentDateString;
-prefRsvDateElement.min = currentDateString;
+  calculateRsvStartDate();
+});
 
 availRsvDateElement.addEventListener('input', () => {
   calculateRsvStartDate();
+  saveSettings();
 });
 prefRsvDateElement.addEventListener('input', () => {
   calculateRsvStartDate();
+  saveSettings();
 });
-
-calculateRsvStartDate();
